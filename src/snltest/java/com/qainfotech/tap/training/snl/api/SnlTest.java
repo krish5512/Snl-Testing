@@ -81,7 +81,15 @@ public class SnlTest {
     		BoardObject.rollDice(uuid);
     }
     
-    
+     @Test
+    public void deletePlayer() throws Exception {
+    	Board delplayer = new Board();
+    	delplayer.registerPlayer("Krishna");
+		JSONObject root = new JSONObject(delplayer);
+		UUID puid = (UUID) root.getJSONObject("data").getJSONArray("players").getJSONObject(0).get("uuid");
+		delplayer.deletePlayer(puid);
+
+    }
     
     
     
